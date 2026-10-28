@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренажёр - Свойства прямых | П-225</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="trainer.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <div class="header-brand">
+                <h1 class="logo">Тренажёр по свойствам прямых</h1>
+                <p class="subtitle">Тест на время с интерактивной проверкой</p>
+            </div>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                    <span class="theme-toggle-icon">🌙</span>
+                    <span class="theme-toggle-text">Ночная тема</span>
+                </button>
+                <button id="logoutBtn" class="btn btn-secondary">Выйти</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container trainer-container">
+            <section class="timer-card fade-in">
+                <div class="timer-header">
+                    <div>
+                        <h2 class="timer-title">Тест на время</h2>
+                        <p class="timer-subtitle">У тебя есть 10 минут, чтобы пройти все задания</p>
+                    </div>
+                    <div class="timer-display">
+                        <span class="timer-label">Осталось</span>
+                        <span class="timer-value" id="timerValue">10:00</span>
+                    </div>
+                </div>
+                <div class="timer-bar-container">
+                    <div class="timer-bar" id="timerBar"></div>
+                </div>
+            </section>
+
+            <section class="progress-card-trainer fade-in delay-1">
+                <div class="progress-header">
+                    <h2 class="progress-title">Прогресс выполнения</h2>
+                    <span class="progress-counter">
+                        <span id="currentTask">1</span> / <span id="totalTasks">10</span>
+                    </span>
+                </div>
+                <div class="progress-bar-container">
+                    <div class="progress-bar" id="progressBar"></div>
+                </div>
+                <p class="progress-text">Правильных ответов: <span id="correctAnswers">0</span></p>
+            </section>
+
+            <section class="task-card-trainer fade-in delay-2">
+                <div class="task-header">
+                    <span class="task-number">Задание №<span id="taskNumber">1</span></span>
+                    <span class="task-type" id="taskType">Теоретическое</span>
+                </div>
+
+                <div class="task-content">
+                    <h3 class="task-question" id="taskQuestion"></h3>
+                    <p class="task-description" id="taskDescription"></p>
+                </div>
+
+                <div class="answer-section">
+                    <div id="answerOptions" class="answer-options"></div>
+                    <div id="textAnswerSection" class="text-answer-section" style="display: none;">
+                        <label for="textAnswer" class="form-label">Ваш ответ:</label>
+                        <input type="text" id="textAnswer" class="form-input" placeholder="Введите ответ">
+                        <button id="checkTextAnswer" class="btn btn-primary btn-check">Проверить ответ</button>
+                    </div>
+                </div>
+
+                <div id="feedback" class="feedback" style="display: none;"></div>
+
+                <div class="task-navigation">
+                    <button id="prevTask" class="btn btn-secondary">← Предыдущее</button>
+                    <button id="nextTask" class="btn btn-primary">Следующее →</button>
+                </div>
+            </section>
+
+            <section class="theory-card-trainer fade-in delay-3">
+                <h2 class="theory-title">Краткая теория: Свойства прямых</h2>
+                <div class="theory-grid">
+                    <article class="theory-item">
+                        <h3>Параллельные прямые</h3>
+                        <p>Две прямые на плоскости называются параллельными, если они не пересекаются.</p>
+                        <ul>
+                            <li>Через точку, не лежащую на данной прямой, можно провести только одну прямую, параллельную
+                                данной</li>
+                            <li>Если две прямые параллельны третьей, то они параллельны между собой</li>
+                            <li>Если прямая пересекает одну из параллельных прямых, то она пересекает и другую</li>
+                        </ul>
+                    </article>
+                    <article class="theory-item">
+                        <h3>Перпендикулярные прямые</h3>
+                        <p>Две прямые называются перпендикулярными, если угол между ними равен 90°.</p>
+                        <ul>
+                            <li>Через любую точку можно провести прямую, перпендикулярную данной, и притом только одну</li>
+                            <li>Если две прямые перпендикулярны третьей, то они параллельны между собой</li>
+                        </ul>
+                    </article>
+                    <article class="theory-item">
+                        <h3>Смежные и вертикальные углы</h3>
+                        <p>При пересечении двух прямых образуются смежные и вертикальные углы.</p>
+                        <ul>
+                            <li>Вертикальные углы равны</li>
+                            <li>Сумма смежных углов равна 180°</li>
+                        </ul>
+                    </article>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p class="footer-text">Работу выполнили: Студенты Группы П-225 Оборин Тимофей и Хабибуллина Кира</p>
+            <p class="footer-text footer-text-small">Итоговая проектная работа по дисциплине «Математика»</p>
+        </div>
+    </footer>
+
+    <div id="resultModal" class="modal">
+        <div class="modal-backdrop"></div>
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title">Результат теста</h2>
+                <p class="modal-subtitle">Твой итог по тренажёру «Свойства прямых»</p>
+            </div>
+            <div class="modal-body">
+                <div class="result-grid">
+                    <div class="result-item">
+                        <span class="result-label">Правильных ответов</span>
+                        <span class="result-value" id="resultCorrect">0</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Всего заданий</span>
+                        <span class="result-value">10</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Процент</span>
+                        <span class="result-value" id="resultPercent">0%</span>
+                    </div>
+                    <div class="result-item">
+                        <span class="result-label">Оценка</span>
+                        <span class="result-value" id="resultGrade">-</span>
+                    </div>
+                    <div class="result-item result-item-wide">
+                        <span class="result-label">Затраченное время</span>
+                        <span class="result-value result-value-small" id="resultTime">00:00</span>
+                    </div>
+                </div>
+                <p class="result-message" id="resultMessage"></p>
+            </div>
+            <div class="modal-footer">
+                <button id="restartBtn" class="btn btn-primary">Пройти заново</button>
+                <a href="index.html" class="btn btn-secondary">На главную</a>
+                <a href="games.html" class="btn btn-ghost">К мини-играм</a>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="app.js"></script>
+    <script src="trainer.js"></script>
+</body>
+
+</html>

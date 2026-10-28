@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Мини-игры | Свойства прямых</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="games.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <div class="header-brand">
+                <h1 class="logo">Мини-игры</h1>
+                <p class="subtitle">Немного отдыха перед новым рывком</p>
+            </div>
+            <div class="header-actions">
+                <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                    <span class="theme-toggle-icon">🌙</span>
+                    <span class="theme-toggle-text">Ночная тема</span>
+                </button>
+                <a class="btn btn-secondary" href="index.html">На главную</a>
+                <a class="btn btn-primary" href="trainer.html">К тренажёру</a>
+            </div>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container games-container">
+            <section class="card games-intro fade-in">
+                <div class="card-header">
+                    <h2 class="card-title">Выбери игру</h2>
+                    <p class="card-subtitle">Две мини-игры для развития реакции и внимания</p>
+                </div>
+                <p class="games-intro-text">
+                    «Поймай фигуру» — кликай по появляющимся геометрическим фигурам за 30 секунд.
+                    «Найди звезду» — найди спрятанную звезду среди множества элементов как можно быстрее.
+                </p>
+            </section>
+
+            <section class="game-card fade-in delay-1">
+                <div class="game-header">
+                    <div>
+                        <h2 class="game-title">Игра 1. Поймай фигуру</h2>
+                        <p class="game-subtitle">Кликай по кругам, квадратам и треугольникам. У тебя 30 секунд.</p>
+                    </div>
+                    <div class="game-stats">
+                        <div class="game-stat">
+                            <span class="game-stat-label">Счёт</span>
+                            <span class="game-stat-value" id="catchScore">0</span>
+                        </div>
+                        <div class="game-stat">
+                            <span class="game-stat-label">Время</span>
+                            <span class="game-stat-value" id="catchTime">30</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-controls">
+                    <button class="btn btn-primary" id="catchStart">Старт</button>
+                    <button class="btn btn-ghost" id="catchRestart">Снова</button>
+                </div>
+                <div class="catch-field" id="catchField">
+                    <div class="catch-overlay" id="catchOverlay">
+                        <p class="catch-overlay-text">Нажми «Старт», чтобы начать игру</p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="game-card fade-in delay-2">
+                <div class="game-header">
+                    <div>
+                        <h2 class="game-title">Игра 2. Найди звезду</h2>
+                        <p class="game-subtitle">Найди спрятанную звезду среди фигур. Время считается.</p>
+                    </div>
+                    <div class="game-stats">
+                        <div class="game-stat">
+                            <span class="game-stat-label">Попытки</span>
+                            <span class="game-stat-value" id="findTries">0</span>
+                        </div>
+                        <div class="game-stat">
+                            <span class="game-stat-label">Время</span>
+                            <span class="game-stat-value" id="findTime">00:00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="game-controls">
+                    <button class="btn btn-primary" id="findStart">Старт</button>
+                    <button class="btn btn-ghost" id="findRestart">Снова</button>
+                </div>
+                <div class="find-grid" id="findGrid"></div>
+                <p class="find-message" id="findMessage">Нажми «Старт», чтобы сгенерировать поле.</p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p class="footer-text">Работу выполнили: Студенты Группы П-225 Оборин Тимофей и Хабибуллина Кира</p>
+            <p class="footer-text footer-text-small">Итоговая проектная работа по дисциплине «Математика»</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+    <script src="games.js"></script>
+</body>
+
+</html>

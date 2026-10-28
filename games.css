@@ -1,0 +1,223 @@
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+}
+
+.games-container {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+}
+
+.games-intro {
+    text-align: center;
+    align-items: center;
+}
+
+.games-intro-text {
+    color: var(--text-secondary);
+    max-width: 720px;
+}
+
+.game-card {
+    background: var(--card-bg);
+    border-radius: 26px;
+    box-shadow: var(--shadow-lg);
+    padding: clamp(1.6rem, 4vw, 2.8rem);
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.4s ease, color 0.4s ease;
+}
+
+.game-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at top right, rgba(129, 140, 248, 0.18), transparent 55%);
+    pointer-events: none;
+}
+
+.game-card>* {
+    position: relative;
+    z-index: 1;
+}
+
+.game-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 1.4rem;
+}
+
+.game-title {
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    font-weight: 800;
+}
+
+.game-subtitle {
+    color: var(--text-secondary);
+}
+
+.game-stats {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+.game-stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0.8rem 1.6rem;
+    border-radius: 999px;
+    background: var(--ghost-bg);
+    min-width: 110px;
+}
+
+.game-stat-label {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+}
+
+.game-stat-value {
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--primary-color);
+}
+
+.game-controls {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+}
+
+.catch-field {
+    position: relative;
+    width: 100%;
+    height: clamp(280px, 40vw, 420px);
+    border-radius: 20px;
+    border: 1px solid var(--border-color);
+    background: radial-gradient(circle at center, rgba(129, 140, 248, 0.16), transparent);
+    overflow: hidden;
+}
+
+.catch-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    background: radial-gradient(circle, rgba(15, 23, 42, 0.4), transparent);
+    transition: opacity 0.3s ease;
+}
+
+.catch-overlay.hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+.catch-overlay-text {
+    color: #fff;
+    font-weight: 600;
+    padding: 0.8rem 1.6rem;
+    border-radius: 999px;
+    background: rgba(15, 23, 42, 0.6);
+}
+
+.catch-shape {
+    position: absolute;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 40px 80px -40px rgba(129, 140, 248, 0.9);
+    animation: popIn 0.25s ease;
+}
+
+.catch-shape.square {
+    border-radius: 14px;
+}
+
+.catch-shape.triangle {
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    border-radius: 0;
+}
+
+@keyframes popIn {
+    from {
+        transform: scale(0.4);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.find-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(70px, 1fr));
+    gap: 0.8rem;
+}
+
+.find-cell {
+    position: relative;
+    width: 100%;
+    padding-top: 100%;
+    border-radius: 14px;
+    border: 1px solid var(--border-color);
+    background: radial-gradient(circle, rgba(129, 140, 248, 0.14), transparent);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.find-cell:hover {
+    transform: translateY(-4px);
+}
+
+.find-cell.revealed.wrong {
+    background: radial-gradient(circle, rgba(239, 68, 68, 0.28), transparent);
+}
+
+.find-cell.revealed.correct {
+    background: radial-gradient(circle, rgba(34, 197, 94, 0.32), transparent);
+}
+
+.find-cell-content {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.8rem;
+}
+
+.find-message {
+    text-align: center;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 720px) {
+    .header-actions {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .game-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .find-grid {
+        grid-template-columns: repeat(auto-fit, minmax(60px, 1fr));
+    }
+}

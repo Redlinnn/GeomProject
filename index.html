@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Тренажёр по свойствам прямых | П-225</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="header">
+        <div class="container header-inner">
+            <div class="header-brand">
+                <h1 class="logo">Математический тренажёр</h1>
+                <p class="subtitle">Тема: «Свойства прямых»</p>
+            </div>
+            <button class="theme-toggle" id="themeToggle" aria-label="Переключить тему">
+                <span class="theme-toggle-icon">🌙</span>
+                <span class="theme-toggle-text">Ночная тема</span>
+            </button>
+        </div>
+    </header>
+
+    <main class="main">
+        <div class="container">
+            <section class="grid">
+                <section class="card auth-card fade-in">
+                    <div class="card-header">
+                        <h2 class="card-title">Доступ к тренажёру</h2>
+                        <p class="card-subtitle">Для начала работы необходимо авторизоваться</p>
+                    </div>
+                    <form id="authForm" class="auth-form">
+                        <div class="form-group">
+                            <label for="password" class="form-label">Пароль доступа</label>
+                            <input type="password" id="password" class="form-input" placeholder="Введите пароль"
+                                autocomplete="off" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-full">Войти в тренажёр</button>
+                    </form>
+                    <div class="card-footer">
+                        <p class="hint">💡 Пароль доступа: <strong>geom2026</strong></p>
+                    </div>
+                </section>
+
+                <section class="card qr-card fade-in delay-1">
+                    <div class="card-header">
+                        <h2 class="card-title">Быстрый доступ по QR-коду</h2>
+                        <p class="card-subtitle">Отсканируйте QR-код для перехода на тренажёр с любого устройства</p>
+                    </div>
+                    <div class="qr-wrapper">
+                        <canvas id="qrcode"></canvas>
+                    </div>
+                    <p class="qr-url" id="qrUrl"></p>
+                </section>
+            </section>
+
+            <section class="card interactive-card fade-in delay-2">
+                <div class="card-header">
+                    <h2 class="card-title">Интерактив</h2>
+                    <p class="card-subtitle">Маленькие фишки для более живого сайта</p>
+                </div>
+                <div class="interactive-grid">
+                    <div class="interactive-item">
+                        <h3 class="interactive-title">Случайный факт</h3>
+                        <p class="interactive-text" id="factText">Нажми кнопку, чтобы получить интересный факт о свойствах
+                            прямых.</p>
+                        <button class="btn btn-ghost" id="factBtn">Показать случайный факт</button>
+                    </div>
+                    <div class="interactive-item">
+                        <h3 class="interactive-title">Конфетти</h3>
+                        <p class="interactive-text">Небольшой взрыв настроения в честь успешной работы над проектом.</p>
+                        <button class="btn btn-ghost" id="confettiBtn">Запустить конфетти</button>
+                    </div>
+                    <div class="interactive-item interactive-item-wide">
+                        <h3 class="interactive-title">Мини-игры</h3>
+                        <p class="interactive-text">Отдохни между заданиями: «Поймай фигуру» и «Найди звезду».</p>
+                        <div class="interactive-actions">
+                            <a class="btn btn-primary" href="games.html">Перейти к мини-играм</a>
+                            <a class="btn btn-secondary" href="trainer.html">Перейти к тренажёру</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="card about-card fade-in delay-3">
+                <div class="card-header">
+                    <h2 class="card-title">О проекте</h2>
+                </div>
+                <p class="about-text">
+                    Интерактивный математический тренажёр по теме «Свойства прямых» создан для закрепления и проверки
+                    знаний. Тест на время, экран результата, мини-игры, смена темы и интерактивные элементы делают
+                    обучение более увлекательным.
+                </p>
+            </section>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="container footer-inner">
+            <p class="footer-text">Работу выполнили: Студенты Группы П-225 Оборин Тимофей и Хабибуллина Кира</p>
+            <p class="footer-text footer-text-small">Итоговая проектная работа по дисциплине «Математика»</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <script src="app.js"></script>
+</body>
+
+</html>
